@@ -1,0 +1,44 @@
+{
+    "name": "blackpig/galleria",
+    "description": "A simple gallery module for Asgard CMS",
+    "type": "asgard-module",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "Stuart Hallewell",
+          "email": "stuart@blackpig.eu"
+        }
+      ],
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "~1.0",
+        "asgardcms/core-module": "~1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "orchestra/testbench": "~3.1"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Galleria\\": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Blackpig/asgard-module-galleria"
+        }
+      ],
+    "scripts": {
+        "post-install-cmd": [
+          "php artisan module:migrate Galleria",
+          "php artisan asgard:publish:module Galleria"
+        ],
+        "post-update-cmd": [
+          "php artisan module:migrate Galleria",
+          "php artisan asgard:publish:module Galleria"
+        ]
+    }
+}
